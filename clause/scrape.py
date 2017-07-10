@@ -118,3 +118,4 @@ def recursive_scrape(proposed, final):
 if __name__ == '__main__':
     proposed, final = get_urls('reg_database.tsv')
     recursive_scrape(proposed, final)
+
