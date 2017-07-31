@@ -16,7 +16,6 @@ def get_urls(filename):
         if s[0] == 'Agency' or s[0][0] == 'M': continue
         proposed_rule.append(s[8])
         final_rule.append(s[9])
-    print str(len(proposed_rule))
     return proposed_rule, final_rule
 
 
@@ -63,23 +62,6 @@ def recursive_scrape(proposed, final):
         new8 = []
         for item in preamb8:
             new8.append(item.encode('ascii', 'ignore'))
-        '''print preamb1
-        print preamb2
-        print preamb3
-        print rin
-        print preamb4
-        print preamb
-        print preamb5
-        print new6
-        print new7
-        print new8'''
-        f.write(str(preamb1) + '\n\n')
-        f.write(str(preamb2) + '\n\n')
-        f.write(str(preamb3) + '\n\n')
-        f.write(str(rin) + '\n\n')
-        f.write(str(preamb4) + '\n\n')
-        f.write(str(preamb) + '\n\n')
-        f.write(str(preamb5) + '\n\n')
         for item in new6:
             f.write(str(item) + '\n')
         f.write('\n')
@@ -98,21 +80,8 @@ def recursive_scrape(proposed, final):
         '''page = urllib.urlopen(url).read()
         soup = BeautifulSoup(page, "html5lib")
         letters = soup.find_all("li", class_="tocitem")
-        print(len(letters))
+        print(len(letters))'''
 
-    dict = {}
-    for element in letters:
-        dict[element.a.get_text()] = {}
-
-        link = prefix + element.a["href"]
-        page = urllib.urlopen(link).read()
-        soup = BeautifulSoup(page, "html5lib")
-        print element.a.get_text()
-        dict[element.a.get_text()] = chapter_scrape(soup)
-
-    #print dict
-    with open('jlist.txt', 'w+') as outfile:
-        json.dump(dict, outfile)'''
 
 
 if __name__ == '__main__':
